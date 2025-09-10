@@ -1,0 +1,27 @@
+services:
+  shoes_db:
+    image: postgres:16
+    container_name: shoes_db
+    restart: always
+    environment:
+      POSTGRES_USER: yhaddar
+      POSTGRES_PASSWORD: 3705
+      POSTGRES_DB: shoes_store
+    ports:
+      - "5432:5432"
+    volumes:
+      - shoes_db_data:/var/lib/postgresql/data
+  server_caching:
+    image: redis:7.0
+    container_name: server_shoes_caching
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "3705"]
+
+    volumes:
+      - redis_data:/data
+
+volumes:
+  shoes_db_data:
+  redis_data:
+
