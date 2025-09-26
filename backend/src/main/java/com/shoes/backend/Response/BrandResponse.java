@@ -16,7 +16,7 @@ public class BrandResponse {
         return BrandResponse.builder()
                 .id(brand.getId().toString())
                 .name(brand.getName())
-                .image("brands/"+brand.getImage())
+                .image("http://localhost:8080/brands/"+brand.getImage())
                 .build();
     }
 

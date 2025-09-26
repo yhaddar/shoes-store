@@ -27,7 +27,15 @@ spring:
         enabled: false
   cache:
     type: redis
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/shoes
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
 app:
   server:
-    port: 8080
+    port: 8081
     address: http://localhost
+server:
+  port: 8081
