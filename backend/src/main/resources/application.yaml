@@ -27,15 +27,21 @@ spring:
         enabled: false
   cache:
     type: redis
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/shoes
-          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: youssefhaddar9@gmail.com
+    password: mlwhxynkrfcqaupa
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
 app:
   server:
     port: 8081
     address: http://localhost
 server:
   port: 8081
+
+secret:
+  key: u6RZv5D2cG8Zxq1bOZbK1uN2U5K9q3FfV6S8k9pL0sM=
